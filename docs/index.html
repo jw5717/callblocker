@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call Blocker — it just blocks calls</title>
+<meta name="description" content="A dead-simple Android call blocker. No subscriptions, no ads, no tracking, no data selling. It literally can't connect to the internet.">
+<style>
+  /* ---- Easy to tweak: brand colors ---- */
+  :root {
+    --blue: #1565C0;
+    --blue-light: #1E88E5;
+    --ink: #10243b;
+    --muted: #5b6b7b;
+    --bg: #f5f8fc;
+    --card: #ffffff;
+    --line: #e3e9f1;
+    --good: #1f9d55;
+    --bad: #d7342a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8eef6; --muted: #9fb0c3; --bg: #0d1420;
+      --card: #141d2b; --line: #263241;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink); background: var(--bg); line-height: 1.6;
+  }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---- Hero ---- */
+  header {
+    background: linear-gradient(135deg, var(--blue-light), var(--blue));
+    color: #fff; text-align: center; padding: 56px 20px 48px;
+  }
+  header .icon { width: 108px; height: 108px; margin: 0 auto 18px; display: block; }
+  header h1 { margin: 0; font-size: 2.4rem; letter-spacing: -0.5px; }
+  header p.tag { margin: 10px 0 0; font-size: 1.25rem; opacity: 0.95; }
+
+  /* ---- Big statement banner ---- */
+  .statement {
+    text-align: center; font-size: 1.35rem; font-weight: 600;
+    padding: 36px 20px; color: var(--ink);
+  }
+  .statement span { color: var(--blue-light); }
+
+  /* ---- Sections / cards ---- */
+  section { padding: 8px 0 24px; }
+  h2 { font-size: 1.5rem; margin: 24px 0 14px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 8px 22px; margin-bottom: 20px;
+  }
+  ul.list { list-style: none; margin: 0; padding: 0; }
+  ul.list li {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  ul.list li:last-child { border-bottom: none; }
+  .mark { flex: none; font-weight: 700; font-size: 1.1rem; line-height: 1.5; }
+  .yes .mark { color: var(--good); }
+  .no .mark { color: var(--bad); }
+  li .label { font-weight: 600; }
+  li .sub { color: var(--muted); font-weight: 400; }
+
+  footer {
+    text-align: center; color: var(--muted); font-size: 0.9rem;
+    padding: 30px 20px 50px; border-top: 1px solid var(--line); margin-top: 20px;
+  }
+  footer a { color: var(--blue-light); }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header>
+  <!-- App icon (inline SVG, matches the launcher icon) -->
+  <svg class="icon" viewBox="0 0 108 108" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="108" y2="108" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#1E88E5"/><stop offset="1" stop-color="#0D47A1"/>
+      </linearGradient>
+    </defs>
+    <rect width="108" height="108" rx="24" fill="url(#g)"/>
+    <g transform="translate(31.2 31.2) scale(1.9)">
+      <path fill="#fff" d="M6.62,10.79c1.44,2.83 3.76,5.14 6.59,6.59l2.2,-2.2c0.27,-0.27 0.67,-0.36 1.02,-0.24 1.12,0.37 2.33,0.57 3.57,0.57 0.55,0 1,0.45 1,1V20c0,0.55 -0.45,1 -1,1 -9.39,0 -17,-7.61 -17,-17 0,-0.55 0.45,-1 1,-1h3.5c0.55,0 1,0.45 1,1 0,1.25 0.2,2.45 0.57,3.57 0.11,0.35 0.03,0.74 -0.25,1.02l-2.2,2.2z"/>
+    </g>
+    <circle cx="54" cy="54" r="34" fill="none" stroke="#F44336" stroke-width="6.5"/>
+    <line x1="30" y1="30" x2="78" y2="78" stroke="#F44336" stroke-width="6.5" stroke-linecap="round"/>
+  </svg>
+  <h1>Call Blocker</h1>
+  <p class="tag">It just blocks calls. Nothing else.</p>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ STATEMENT ============ -->
+  <p class="statement">
+    Free of modern-day annoyances. No subscriptions, no ads, no tracking &mdash;
+    <span>it simply blocks calls.</span>
+  </p>
+
+  <!-- ============ WHAT IT DOES ============ -->
+  <section>
+    <h2>What it does</h2>
+    <div class="card">
+      <ul class="list">
+        <li class="yes">
+          <span class="mark">&#10003;</span>
+          <span><span class="label">Blocks every call</span> that isn't from one of your
+          contacts or a number you've whitelisted inside the app.</span>
+        </li>
+        <li class="yes">
+          <span class="mark">&#10003;</span>
+          <span><span class="label">Keeps a blocked-call log</span><span class="sub"> &mdash;
+          see every call it stopped, grouped by day, with the time it came in.</span></span>
+        </li>
+        <li class="yes">
+          <span class="mark">&#10003;</span>
+          <span><span class="label">Whitelist any number</span><span class="sub"> &mdash;
+          let a specific number through without adding it to your contacts.</span></span>
+        </li>
+        <li class="yes">
+          <span class="mark">&#10003;</span>
+          <span><span class="label">One-tap on/off</span><span class="sub"> &mdash;
+          turn blocking on or off whenever you like.</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ WHAT IT DOESN'T DO ============ -->
+  <section>
+    <h2>What it does <em>not</em> do</h2>
+    <div class="card">
+      <ul class="list">
+        <li class="no">
+          <span class="mark">&#10007;</span>
+          <span><span class="label">No subscriptions.</span><span class="sub"> It's not a
+          rental. There's nothing to pay, ever.</span></span>
+        </li>
+        <li class="no">
+          <span class="mark">&#10007;</span>
+          <span><span class="label">No relentless, annoying ads.</span><span class="sub">
+          None. Not a single one.</span></span>
+        </li>
+        <li class="no">
+          <span class="mark">&#10007;</span>
+          <span><span class="label">No tracking.</span><span class="sub"> It doesn't watch
+          anything you do on your phone.</span></span>
+        </li>
+        <li class="no">
+          <span class="mark">&#10007;</span>
+          <span><span class="label">No data harvesting.</span><span class="sub"> It doesn't
+          collect your personal or public data &mdash; and it certainly doesn't sell it to
+          the highest bidder.</span></span>
+        </li>
+        <li class="no">
+          <span class="mark">&#10007;</span>
+          <span><span class="label">No piggybacking.</span><span class="sub"> Other apps
+          can't latch onto it to steal data. In fact, I personally removed this app's
+          ability to make a network connection at all &mdash; it physically cannot send
+          anything off your phone.</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <p><a href="https://github.com/jw5717/callblocker/blob/main/docs/PRIVACY_POLICY.md">Privacy policy</a>
+  &nbsp;&middot;&nbsp; Questions? <a href="mailto:jw5717@hotmail.com">jw5717@hotmail.com</a></p>
+  <p>&copy; 2026 Call Blocker</p>
+</footer>
+
+</body>
+</html>
