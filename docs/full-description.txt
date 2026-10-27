@@ -1,0 +1,35 @@
+Call Blocker does one thing, and does it well: it silently blocks phone calls from anyone who isn't in your contacts or on your personal whitelist. No spam, no scammers, no robocalls — just quiet.
+
+But what really sets Call Blocker apart is everything it refuses to do.
+
+What Call Blocker Does NOT Do
+• No subscriptions. Pay once and own it. It's not a rental — there are no recurring fees, ever.
+• No ads. Not a banner, not a popup, not a single one.
+• No tracking. It does not watch, record, or analyze anything you do on your phone.
+• No data harvesting. It does not collect your personal or public information, and it will never sell your data to the highest bidder.
+• No piggybacking. Other apps cannot latch onto Call Blocker to siphon your data. In fact, this app has no ability to make a network connection at all — it is physically incapable of sending anything off your device. Your contacts and call history never leave your phone.
+
+In a world of apps that nickel-and-dime you, bury you in ads, and quietly sell your life to advertisers, Call Blocker is a refreshing throwback: a simple tool that respects you.
+
+What It Does
+• Blocks every call that isn't from one of your saved contacts or a number you've whitelisted inside the app.
+• Rejects unwanted calls silently — no ring, no interruption.
+• Keeps a blocked-call log so you can see exactly who it stopped, grouped by day, with the time each call came in.
+• Lets you whitelist any number straight from the log, so a specific caller can get through without adding them to your contacts.
+• Puts you in control with a one-tap on/off switch.
+• Optional alerts — if you want, it can quietly notify you when a call is blocked. Off by default.
+
+How It Works
+Call Blocker uses Android's built-in call-screening system. When a call comes in, it checks the number against your contacts and your whitelist. If there's a match, it rings normally. If not, it's turned away quietly and added to your log. That's it.
+
+Permissions
+Call Blocker asks only for what it genuinely needs:
+• Contacts — read-only, used solely to recognize your contacts when a call arrives. They are never stored or sent anywhere.
+• Notifications — only if you turn on blocked-call alerts.
+
+It does not request internet access, location, microphone, SMS, or your call log. It can't, and it won't.
+
+Privacy By Design
+Everything happens on your device. No servers, no accounts, no sign-ups, no cloud. Because the app has no internet permission, your information simply cannot leave your phone — not by accident, not by design, not ever.
+
+Call Blocker. It just blocks calls. Nothing else.
