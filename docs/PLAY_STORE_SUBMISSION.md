@@ -84,6 +84,9 @@ But what really sets Call Blocker apart is everything it refuses to do.
 
 What Call Blocker Does NOT Do
 - No subscriptions. Pay once and own it. It's not a rental — there are no recurring fees, ever.
+- No in-app purchases. The price you pay is the only money this app will ever ask you for.
+- No premium tiers or upsells. There's no locked "pro" version — every feature is included.
+- No "battle passes." This is a call blocker, not a game built to drain your wallet.
 - No ads. Not a banner, not a popup, not a single one.
 - No tracking. It does not watch, record, or analyze anything you do on your phone.
 - No data harvesting. It does not collect your personal or public information, and it will never sell your data to the highest bidder.
