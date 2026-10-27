@@ -89,6 +89,13 @@ Original requirements (all implemented):
 Kotlin, Jetpack Compose (Material3), `minSdk 29`, `targetSdk 36`, `compileSdk 36`.
 Only extra dependency beyond Compose/AndroidX: `kotlinx-coroutines-core` (for StateFlow).
 
+## Backlog
+
+See `TODO.md` for queued changes — notably some are intentionally held back to
+roll out as updates **during the closed test** (e.g., renaming the launcher label
+to "Simple Call Blocker"; the Play listing is already named that). Check it when
+picking up enhancement work.
+
 ## Enhancement workflow
 
 After changes: build (`assembleDebug`) to verify, optionally install to the device
