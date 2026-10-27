@@ -83,16 +83,16 @@ Call Blocker does one thing, and does it well: it silently blocks phone calls fr
 But what really sets Call Blocker apart is everything it refuses to do.
 
 What Call Blocker Does NOT Do
-- No subscriptions. Pay once and own it. It's not a rental — there are no recurring fees, ever.
-- No in-app purchases. The price you pay is the only money this app will ever ask you for.
-- No premium tiers or upsells. There's no locked "pro" version — every feature is included.
-- No "battle passes." This is a call blocker, not a game built to drain your wallet.
-- No ads. Not a banner, not a popup, not a single one.
-- No tracking. It does not watch, record, or analyze anything you do on your phone.
-- No data harvesting. It does not collect your personal or public information, and it will never sell your data to the highest bidder.
-- No piggybacking. Other apps cannot latch onto Call Blocker to siphon your data. In fact, this app has no ability to make a network connection at all — it is physically incapable of sending anything off your device. Your contacts and call history never leave your phone.
+- No subscriptions. You buy it once. Wild concept, we know — no monthly fee just to keep a button working.
+- No in-app purchases. The price on the listing is the whole price. There's no surprise checkout hiding inside.
+- No premium tiers or upsells. No "Pro," no "Plus," no "Ultimate Platinum Edition" holding the good features hostage. You get all of it.
+- No "battle passes." It's a call blocker. There's no season pass, no loot box, nothing to grind. We can't believe this needs saying either.
+- No ads. Nobody paid to wedge themselves between you and your phone. Refreshing, isn't it?
+- No tracking. It doesn't care where you go, what you tap, or how long you stared at the screen.
+- No data harvesting. It won't sell your life to "trusted partners" (translation: total strangers). It can't sell what it never collects.
+- No piggybacking. No other app can hitch a ride to skim your data — because this one literally cannot reach the internet. I removed its ability to make a network connection. It couldn't phone home if it wanted to.
 
-In a world of apps that nickel-and-dime you, bury you in ads, and quietly sell your life to advertisers, Call Blocker is a refreshing throwback: a simple tool that respects you.
+Somewhere along the way, even flashlight apps started demanding your location, your contacts, and $4.99 a month. Call Blocker is the stubborn opposite: a plain tool that does its job and then gets out of your way.
 
 What It Does
 - Blocks every call that isn't from one of your saved contacts or a number you've whitelisted inside the app.
