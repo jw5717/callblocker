@@ -20,16 +20,21 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.jw.callblocker.data.BlockedCall
@@ -145,61 +150,144 @@ fun LogScreen(
 ) {
     val blockedCalls by blockedCallsState
     val whitelist by whitelistState
+    var selectedTab by remember { mutableStateOf(0) }
 
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("Blocked calls") },
+                title = { Text("Call activity") },
                 navigationIcon = {
                     TextButton(onClick = onBack) { Text("Back") }
                 },
                 actions = {
-                    if (blockedCalls.isNotEmpty()) {
+                    // "Clear" only wipes the blocked-call log — never the whitelist —
+                    // so it's only shown on the Blocked tab.
+                    if (selectedTab == 0 && blockedCalls.isNotEmpty()) {
                         TextButton(onClick = onClearLog) { Text("Clear") }
                     }
                 }
             )
         }
     ) { padding ->
-        if (blockedCalls.isEmpty()) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding)
-                    .padding(32.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Text(
-                    "No calls have been blocked yet.",
-                    style = MaterialTheme.typography.bodyLarge
+        Column(modifier = Modifier.padding(padding)) {
+            TabRow(selectedTabIndex = selectedTab) {
+                Tab(
+                    selected = selectedTab == 0,
+                    onClick = { selectedTab = 0 },
+                    text = { Text("Blocked (${blockedCalls.size})") }
+                )
+                Tab(
+                    selected = selectedTab == 1,
+                    onClick = { selectedTab = 1 },
+                    text = { Text("Whitelist (${whitelist.size})") }
                 )
             }
-        } else {
-            val today = remember { LocalDate.now() }
-            // Group newest-first calls into day sections, preserving order.
-            val sections = remember(blockedCalls) {
-                blockedCalls.groupBy { toLocalDate(it.timestamp) }.entries.toList()
-            }
-
-            LazyColumn(modifier = Modifier.padding(padding)) {
-                item { ColumnHeaderRow() }
-
-                sections.forEach { (date, calls) ->
-                    item { DaySectionHeader(dayLabel(date, today)) }
-                    items(calls) { call ->
-                        BlockedCallRow(
-                            call = call,
-                            checked = !call.isUnknown && call.number in whitelist,
-                            onCheckedChange = { checked ->
-                                call.number?.let { onWhitelistChange(it, checked) }
-                            }
-                        )
-                        HorizontalDivider()
-                    }
-                }
+            when (selectedTab) {
+                0 -> BlockedTab(blockedCalls, whitelist, onWhitelistChange)
+                else -> WhitelistTab(whitelist, onRemove = { onWhitelistChange(it, false) })
             }
         }
+    }
+}
+
+@Composable
+private fun BlockedTab(
+    blockedCalls: List<BlockedCall>,
+    whitelist: Set<String>,
+    onWhitelistChange: (String, Boolean) -> Unit
+) {
+    if (blockedCalls.isEmpty()) {
+        EmptyMessage("No calls have been blocked yet.")
+        return
+    }
+    val today = remember { LocalDate.now() }
+    // Group newest-first calls into day sections, preserving order.
+    val sections = remember(blockedCalls) {
+        blockedCalls.groupBy { toLocalDate(it.timestamp) }.entries.toList()
+    }
+    LazyColumn {
+        item { ColumnHeaderRow() }
+        sections.forEach { (date, calls) ->
+            item { DaySectionHeader(dayLabel(date, today)) }
+            items(calls) { call ->
+                BlockedCallRow(
+                    call = call,
+                    checked = !call.isUnknown && call.number in whitelist,
+                    onCheckedChange = { checked ->
+                        call.number?.let { onWhitelistChange(it, checked) }
+                    }
+                )
+                HorizontalDivider()
+            }
+        }
+    }
+}
+
+@Composable
+private fun WhitelistTab(
+    whitelist: Set<String>,
+    onRemove: (String) -> Unit
+) {
+    if (whitelist.isEmpty()) {
+        EmptyMessage("No whitelisted numbers yet.\n\nTick a number on the Blocked tab to always let it through.")
+        return
+    }
+    val numbers = remember(whitelist) { whitelist.sorted() }
+    LazyColumn {
+        item {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 16.dp, top = 12.dp, bottom = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    "Whitelisted number",
+                    style = MaterialTheme.typography.labelLarge,
+                    modifier = Modifier.weight(1f)
+                )
+                Text("Remove", style = MaterialTheme.typography.labelLarge)
+            }
+            HorizontalDivider()
+            Text(
+                "These numbers always ring through, even if they aren't in your contacts.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(16.dp)
+            )
+            HorizontalDivider()
+        }
+        items(numbers) { number ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    number,
+                    style = MaterialTheme.typography.titleMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f)
+                )
+                TextButton(onClick = { onRemove(number) }) { Text("Remove") }
+            }
+            HorizontalDivider()
+        }
+    }
+}
+
+@Composable
+private fun EmptyMessage(text: String) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(32.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(text, style = MaterialTheme.typography.bodyLarge, textAlign = TextAlign.Center)
     }
 }
 
