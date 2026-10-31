@@ -6,7 +6,7 @@ updates **during the 14-day closed test**, to demonstrate active development
 
 ## Queued for mid-test updates
 
-- [ ] **Rename app to "Simple Call Blocker"** (the Play listing name is already
+- [ ] **(v3) Rename app to "Simple Call Blocker"** (the Play listing name is already
       "Simple Call Blocker"; this syncs the rest):
   - Launcher label → `app/src/main/res/values/strings.xml` (`app_name`, currently "CallBlocker")
   - Landing page title + hero → `docs/index.html`
@@ -23,3 +23,5 @@ updates **during the 14-day closed test**, to demonstrate active development
 - Core app (contacts-only blocking, day-grouped log, whitelist, toggle, optional
   block notifications, custom icon), signed release build, GitHub repo, landing
   page + privacy policy, Play listing + assets, Internal testing upload.
+- **v2** (versionCode 2 / 1.1): split the log screen into **Blocked** + **Whitelist**
+  tabs; whitelist is now managed on its own tab and is never affected by "Clear".
