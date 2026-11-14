@@ -6,12 +6,7 @@ updates **during the 14-day closed test**, to demonstrate active development
 
 ## Queued for mid-test updates
 
-- [ ] **(v3) Rename app to "Simple Call Blocker"** (the Play listing name is already
-      "Simple Call Blocker"; this syncs the rest):
-  - Launcher label → `app/src/main/res/values/strings.xml` (`app_name`, currently "CallBlocker")
-  - Landing page title + hero → `docs/index.html`
-  - References in `docs/` and `CLAUDE.md`
-  - Bump `versionCode` → 2, rebuild `bundleRelease`, re-upload.
+(none right now)
 
 ## Optional / future (not required to ship)
 
@@ -25,3 +20,5 @@ updates **during the 14-day closed test**, to demonstrate active development
   page + privacy policy, Play listing + assets, Internal testing upload.
 - **v2** (versionCode 2 / 1.1): split the log screen into **Blocked** + **Whitelist**
   tabs; whitelist is now managed on its own tab and is never affected by "Clear".
+- **v3** (versionCode 3 / 1.2): renamed the launcher label to **"Simple Call Blocker"**
+  (matches the Play listing); updated landing page title/hero/footer.

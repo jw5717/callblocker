@@ -91,10 +91,9 @@ Only extra dependency beyond Compose/AndroidX: `kotlinx-coroutines-core` (for St
 
 ## Backlog
 
-See `TODO.md` for queued changes — notably some are intentionally held back to
-roll out as updates **during the closed test** (e.g., renaming the launcher label
-to "Simple Call Blocker"; the Play listing is already named that). Check it when
-picking up enhancement work.
+See `TODO.md` for status and any queued changes. The app's launcher label is
+**"Simple Call Blocker"** (`strings.xml` `app_name`), matching the Play listing.
+Check `TODO.md` when picking up enhancement work.
 
 ## Enhancement workflow
 
