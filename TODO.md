@@ -8,10 +8,15 @@ updates **during the 14-day closed test**, to demonstrate active development
 
 (none right now)
 
-## Optional / future (not required to ship)
+## Optional / future
 
-- [ ] Enable R8 minification + upload the mapping file and native debug symbols
-      (smaller download, cleaner crash reports). Currently optimization is off.
+- [ ] **Enable R8 (minify + obfuscate + shrink resources)** — Play Console flags
+      "Obfuscation 0%, below 25% threshold" with a deadline of **~Feb 2027**. Not
+      blocking, but do it before then. IMPORTANT: install the optimized release
+      build on a device and verify it runs (screening service + UI) before
+      shipping to testers — obfuscation can break things. Mapping file is bundled
+      by AGP automatically, which also clears the "no deobfuscation file" warning.
+- [ ] User has "a couple of ideas to make it better" — capture them here when shared.
 - [ ] Add a 512 Play Store icon variant / tablet screenshots if ever desired.
 
 ## Done
