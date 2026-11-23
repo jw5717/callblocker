@@ -16,8 +16,29 @@ updates **during the 14-day closed test**, to demonstrate active development
       build on a device and verify it runs (screening service + UI) before
       shipping to testers — obfuscation can break things. Mapping file is bundled
       by AGP automatically, which also clears the "no deobfuscation file" warning.
-- [ ] User has "a couple of ideas to make it better" — capture them here when shared.
 - [ ] Add a 512 Play Store icon variant / tablet screenshots if ever desired.
+
+## Play policy items to watch (from Oct 29, 2026 policy announcement)
+
+- [ ] **Contacts permission declaration** — new "Manage Contacts Permission" policy
+      requires a Play Console declaration to use READ_CONTACTS. App QUALIFIES (a
+      call blocker must auto-check every incoming call against all contacts; a
+      system contact picker is insufficient). Fill in the declaration in the
+      Console (App content / Dashboard) if/when the task appears. ~30+ day window.
+- [ ] **Trader status declaration** (required for paid apps from Nov 2026) — answer
+      in Console; individual hobbyist seller is typically "non-trader."
+- [ ] Japan payment authorization by Dec 1, 2026 — ONLY if selling into/out of
+      Japan. Likely N/A (US-focused), but confirm.
+
+## Explored and ruled out (do NOT re-chase)
+
+- Auto-delete short/dead-air voicemails: NOT feasible. Traditional voicemail lives
+  on the carrier (no API); visual voicemail requires becoming the default dialer +
+  voicemail permissions — too invasive, wrecks the app's minimal-permission pitch.
+  User's phone may have built-in spam-voicemail filtering instead.
+- Keyword/content SMS spam blocking: NOT feasible. Requires becoming the default
+  SMS app + the most-restricted permission group on Play. Samsung Messages already
+  has "Block phrases" built in — use that instead.
 
 ## Done
 - Core app (contacts-only blocking, day-grouped log, whitelist, toggle, optional
